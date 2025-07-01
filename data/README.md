@@ -87,9 +87,10 @@ data
     |--<Target>.meme.txt
   |--BAM
     |--<Strain>_<Target>_<Assay>_<rep>_hg38.bam
-  |--NormalizationFactors
-    |--<BAMFILE>_NCISb_ScalingFactors.out
-    |--<BAMFILE>_Total_ScalingFactors.out
+    |--NormalizationFactors
+      |--<BAMFILE>_NCISb_ScalingFactors.out
+      |--<BAMFILE>_Total_ScalingFactors.out
+ 
 ```
 
 </details>
