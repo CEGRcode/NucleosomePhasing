@@ -19,8 +19,8 @@ source activate /storage/group/bfp2/default/owl5022-OliviaLang/conda/bx
 # Inputs and outputs
 GENOME=$WRK/../data/hg38_files/hg38.fa
 BLACKLIST=$WRK/../data/hg38_files/ENCFF356LFX_hg38_exclude.bed
-WT_SEM_CTCFBAMFILE=$WRK/../data/BAM/41780_CTCF_WT.bam
-CTCFKD_SEM_CTCFBAMFILE=$WRK/../data/BAM/41781_CTCF_KD.bam
+WT_SEM_CTCFBAMFILE=$WRK/../data/BAM/SEM_CTCF_BX_WT_hg38.bam
+CTCFKD_SEM_CTCFBAMFILE=$WRK/../data/BAM/SEM_CTCF_BX_CTCTKO_hg38.bam
 CTCFBEDFOLDER=$WRK/../data/RefPT-JASPAR/
 OUTDIR=$WRK/../data/RefPT-JASPAR-nonK562/
 
