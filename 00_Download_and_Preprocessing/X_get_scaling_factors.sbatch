@@ -46,8 +46,6 @@ BAM=`basename $BAMFILE ".bam"`
 [ -f $BAMFILE.bai ] || samtools index $BAMFILE
 
 # Use different normalization method depending on target/assay
-echo "Calculate Total Tag normalization factors w/ blacklist"
-java -jar -Djava.awt.headless=true $SCRIPTMANAGER read-analysis scaling-factor $BAMFILE -f $BLACKLIST --total-tag -o $NDIR/${BAM}_TotalTag
 
 STRAIN=`echo $BAM | cut -d "_" -f 1`
 TARGET=`echo $BAM | cut -d "_" -f 2`
@@ -58,11 +56,20 @@ TARGET=`echo $BAM | cut -d "_" -f 2`
 [ "$STRAIN" == "MNase-ChIP" ] && exit
 [ "$STRAIN" == "CUTRUN" ] && exit
 
+# Calculate NCIS normalization factor and Total tag normalization,  Calculate NCIS normalization factor
+
 CONTROL=$BAMDIR/${STRAIN}_IgG_BX_merge_hg38.bam
 echo "Calculate NCIS normalization factors w/ blacklist and control: ${CONTROL}"
+echo "Calculate Total Tag normalization factors w/ blacklist"
 
-# Calculate NCIS normalization factor
-java -jar -Djava.awt.headless=true $SCRIPTMANAGER read-analysis scaling-factor $BAMFILE -f $BLACKLIST --ncis -c $CONTROL -w 500 -o $NDIR/${BAM}_NCISb
+if [ "$STRAIN" == "SEM" ]; then
+    echo "Total tag normalization"
+    java -jar -Djava.awt.headless=true $SCRIPTMANAGER read-analysis scaling-factor $BAMFILE -f $BLACKLIST --total-tag -o $NDIR/${BAM}_TotalTag
+
+elif [ "$ASSAY" == "BX" ]; then
+    echo "Calculate classic TF NCIS normalization factors w/ blacklist"
+    java -jar -Djava.awt.headless=true $SCRIPTMANAGER read-analysis scaling-factor $BAMFILE -f $BLACKLIST --ncis -c $CONTROL -w 500 -o $NDIR/${BAM}_NCISb
+fi
 
 # Calculate fragment size distribution
 java -jar -Djava.awt.headless=true $SCRIPTMANAGER bam-statistics pe-stat -x 500 -d $BAMFILE -o $FDIR/$BAM
