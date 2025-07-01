@@ -49,11 +49,13 @@ java -jar $PICARD MergeSamFiles -O HepG2_IgG_BX_merge_hg38.bam \
 # Use Picard to merge resequenced technical replicates, otherwise rename BAM using cp
 
 # Input
-cp 28326_Input_-_K562_-_-_50Unuclease10min-0cycSonic-newQuenchingbuffer_BI.bam K562_-_BI_rep1_hg38.bam
-
+cp 41859_Input_-_SEM_-_RPMI_-_BI.bam SEM_-_BI_WT_hg38.bam
+cp 41860_Input_-_SEM_-_RPMI_1µM-5PhIAA_BI.bam SEM_-_BI_CTCFKO_hg38.bam
 # CTCF
 cp 33924_CTCF_07-729_K562_-_IMDM_-_BX.bam K562_CTCF_BX_rep1_hg38.bam
 cp 34174_CTCF_07-729_K562_-_IMDM_-_BX.bam K562_CTCF_BX_rep2_hg38.bam
+cp 41780_CTCF_07-729_SEM_-_RPMI_-_BX.bam SEM_CTCF_BX_WT_hg38.bam
+cp 41781_CTCF_07-729_SEM_-_RPMI_CTCF depletion_BX.bam SEM_CTCF_BX_CTCTKO_hg38.bam
 
 # non-crosslinked CTCF 
 java -jar $PICARD MergeSamFiles -O K562_CTCF_nonXLBX_rep1_hg38.bam \
@@ -98,12 +100,10 @@ cp 34158_HNF4A_HPA004712_HepG2_-_-_-_BX.bam HepG2_HNF4A_BX_rep1_hg38.bam
 cp 32659_FOXA2_ab256493_K562_-_-_-_BX.bam K562_FOXA2_BX_rep1_hg38.bam
 cp 38479_FOXA2_ab256493_K562_-_IMDM_-_BX.bam K562_FOXA2_BX_rep2_hg38.bam
 
-# ZKSCAN1 K562
-cp  34048_ZKSCAN1_HPA006672_K562_-_IMDM_-_BX.bam K562_ZKSCAN1_BX_rep1_hg38.bam
-
 cd $WRK/../data
 mv sample-BAM/K562_*.bam $BAMDIR
 mv sample-BAM/HepG2_*.bam $BAMDIR
+mv sample-BAM/SEM_*.bam $BAMDIR
 
 # Index set of BAM files
 for FILE in $BAMDIR/*.bam;
