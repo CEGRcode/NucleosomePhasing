@@ -94,9 +94,10 @@ samtools faidx hg38.fa     # hg38.fa.fai
 
 ...and there are some other reference files already provided for you within this repository.
 ```
-hg38.info                   # used by ChExMix
+hg38.chrom.sizes            # used 04_Call_Motifs/2_FIMO_Motifs_from_Genome.sbatch
+                            # 04_Call_Motifs/4_NFIA_motif.sh 04_Call_Motifs/5_FoxA_motif.sh 04_Call_Motifs/6_CTCF_motif.sh
 hg38_exclude_contig.txt     # used by ChExMix
-hg38_background_model.txt   # used by ChExMix
-hg38_exclude.bed            # used by 00_Download_and_Preprocessing/3_normalize_samples.pbs
-                            # and 02_Call_RefPT/2_FIMO_Motifs_from_Genome.pbs
+human_background_model.txt  # used by ChExMix
+hg38-blacklist.bed          # used by 00_Download_and_Preprocessing/X_get_scaling_factors.sbatch
+                            # and 04_Call_Motifs/2_FIMO_Motifs_from_Genome.sbatch
 ```
