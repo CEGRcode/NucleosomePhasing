@@ -1,13 +1,11 @@
 # Genome-wide rotational and translational setting of transcription factors with nucleosomes
 
-### Jordan E. Krebs<sup>&#x2020; 1,2</sup>, Haining Chen<sup>&#x2020; 2</sup>, Olivia W. Lang<sup>2</sup>, William K. M. Lai<sup>2</sup>, B. Franklin Pugh<sup>2</sup>
+### Haining Chen<sup>&#x2020; 1</sup>, Jordan E. Krebs<sup>&#x2020; 1</sup>,  Olivia W. Lang<sup>1</sup>, Judith H. Lang<sup>1</sup>, Chunliang L. Lai<sup>1</sup>, William K. M. Lai<sup>1</sup>, B. Franklin Pugh<sup>1</sup>
 
 &#x2020; Co-first author
 
-<sup>1</sup>MD/PhD Medical Scientist Training Program, Penn State College of Medicine, Hershey, PA, USA.
-
-<sup>2</sup>Department of Molecular Biology and Genetics, Cornell University, Ithaca, New York, 14853, USA
-
+<sup>1</sup>Department of Molecular Biology and Genetics, Cornell University, Ithaca, New York, 14853, USA
+<sup>1</sup>Department of Tumor Cell Biology, St. Jude Children’s Research Hospital, Memphis, Tennessee, 38105, USA
 ### Correspondence:fp265@cornell.edu
 
 ### PMID : [XXXXXXXX](https://pubmed.ncbi.nlm.nih.gov/XXXXXXXX/)
