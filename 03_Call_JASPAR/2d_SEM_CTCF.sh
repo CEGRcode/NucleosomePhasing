@@ -64,35 +64,10 @@ rm $OUTDIR/CTCF_MA1929.1_SORT-WT-SEM-CTCF.tsv
 wc -l $OUTDIR/CTCF_MA1929.1_SORT-CTCFKD-to-WT-SEM-CTCF.tsv
 #  16671 /CTCF_MA1929.1_SORT-CTCFKD-to-WT-SEM-CTCF.tsv
 
-## find most depleted site and less depleted sites
+sort -k7,7nr $OUTDIR/CTCF_MA1929.1_SORT-CTCFKD-to-WT-SEM-CTCF.tsv  | head -n 4168 | cut -f 1-6 - > $OUTDIR/CTCF_MA1929.1_1.bed
 
-sort -k7,7nr $OUTDIR/CTCF_MA1929.1_SORT-CTCFKD-to-WT-SEM-CTCF.tsv  | head -n 4168 | sort -k9,9nr | head -n 2084 > $OUTDIR/CTCF_MA1929.1_SORT-CTCFKD-to-WT-SEM-CTCF_1_undepleted.tsv 
-sort -k7,7nr $OUTDIR/CTCF_MA1929.1_SORT-CTCFKD-to-WT-SEM-CTCF.tsv  | head -n 4168 | sort -k9,9nr | tail -n +2084 > $OUTDIR/CTCF_MA1929.1_SORT-CTCFKD-to-WT-SEM-CTCF_1_depleted.tsv 
-
-sort -k7,7nr $OUTDIR/CTCF_MA1929.1_SORT-CTCFKD-to-WT-SEM-CTCF.tsv  | tail -n +4169 | head -n 4168 |  sort -k9,9nr | head -n 2084 > $OUTDIR/CTCF_MA1929.1_SORT-CTCFKD-to-WT-SEM-CTCF_2_undepleted.tsv 
-sort -k7,7nr $OUTDIR/CTCF_MA1929.1_SORT-CTCFKD-to-WT-SEM-CTCF.tsv  | tail -n +4169 | head -n 4168 |  sort -k9,9nr | tail -n +2084 > $OUTDIR/CTCF_MA1929.1_SORT-CTCFKD-to-WT-SEM-CTCF_2_depleted.tsv 
-
-sort -k7,7nr $OUTDIR/CTCF_MA1929.1_SORT-CTCFKD-to-WT-SEM-CTCF.tsv  | tail -n +8337 | head -n 4168 |  sort -k9,9nr | head -n 2084 > $OUTDIR/CTCF_MA1929.1_SORT-CTCFKD-to-WT-SEM-CTCF_3_undepleted.tsv 
-sort -k7,7nr $OUTDIR/CTCF_MA1929.1_SORT-CTCFKD-to-WT-SEM-CTCF.tsv  | tail -n +8337 | head -n 4168 |  sort -k9,9nr | tail -n +2084 > $OUTDIR/CTCF_MA1929.1_SORT-CTCFKD-to-WT-SEM-CTCF_3_depleted.tsv 
-
-sort -k7,7nr $OUTDIR/CTCF_MA1929.1_SORT-CTCFKD-to-WT-SEM-CTCF.tsv  | tail -n +12505 |  sort -k9,9nr | head -n 2084 > $OUTDIR/CTCF_MA1929.1_SORT-CTCFKD-to-WT-SEM-CTCF_4_undepleted.tsv 
-sort -k7,7nr $OUTDIR/CTCF_MA1929.1_SORT-CTCFKD-to-WT-SEM-CTCF.tsv  | tail -n +12505 |  sort -k9,9nr | tail -n +2084 > $OUTDIR/CTCF_MA1929.1_SORT-CTCFKD-to-WT-SEM-CTCF_4_depleted.tsv 
-
-cut -f 1-6 $OUTDIR/CTCF_MA1929.1_SORT-CTCFKD-to-WT-SEM-CTCF_1_undepleted.tsv  > $OUTDIR/CTCF_MA1929.1_1_KD-nondepleted.bed
-cut -f 1-6 $OUTDIR/CTCF_MA1929.1_SORT-CTCFKD-to-WT-SEM-CTCF_1_depleted.tsv  > $OUTDIR/CTCF_MA1929.1_1_KD-depleted.bed
-cut -f 1-6 $OUTDIR/CTCF_MA1929.1_SORT-CTCFKD-to-WT-SEM-CTCF_2_undepleted.tsv  > $OUTDIR/CTCF_MA1929.1_2_KD-nondepleted.bed
-cut -f 1-6 $OUTDIR/CTCF_MA1929.1_SORT-CTCFKD-to-WT-SEM-CTCF_2_depleted.tsv  > $OUTDIR/CTCF_MA1929.1_2_KD-depleted.bed
-cut -f 1-6 $OUTDIR/CTCF_MA1929.1_SORT-CTCFKD-to-WT-SEM-CTCF_3_undepleted.tsv  > $OUTDIR/CTCF_MA1929.1_3_KD-nondepleted.bed
-cut -f 1-6 $OUTDIR/CTCF_MA1929.1_SORT-CTCFKD-to-WT-SEM-CTCF_3_depleted.tsv  > $OUTDIR/CTCF_MA1929.1_3_KD-depleted.bed
-cut -f 1-6 $OUTDIR/CTCF_MA1929.1_SORT-CTCFKD-to-WT-SEM-CTCF_4_undepleted.tsv  > $OUTDIR/CTCF_MA1929.1_4_KD-nondepleted.bed
-cut -f 1-6 $OUTDIR/CTCF_MA1929.1_SORT-CTCFKD-to-WT-SEM-CTCF_4_depleted.tsv  > $OUTDIR/CTCF_MA1929.1_4_KD-depleted.bed
-
-
-rm $OUTDIR/CTCF_MA1929.1_SORT-CTCFKD-to-WT-SEM-CTCF_*_*depleted.tsv
-
-for file in $OUTDIR/CTCF_MA1929.1_*_KD-*depleted.bed ; do
+for file in  $OUTDIR/CTCF_MA1929.1_1.bed  ; do
 	filename=`basename $file ".bed"`
 	java -jar $SCRIPTMANAGER coordinate-manipulation expand-bed -c 1000 $file -o $OUTDIR/1000bp/${filename}_1000bp.bed
 	java -jar $SCRIPTMANAGER coordinate-manipulation expand-bed -c 150 $file -o $OUTDIR/150bp/${filename}_150bp.bed
 done
-
