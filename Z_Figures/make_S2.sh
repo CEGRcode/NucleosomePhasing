@@ -119,6 +119,8 @@ cp $WRK/Library/ZKSCAN1_MA1585.1_Unbound_1000bp/Composites/*.out S2/d
 # ===============================================================================================================================
 [ -d S2 ] || mkdir S2
 [ -d S2/d ] || mkdir S2/b
+cp $WRK/Library/CTCF_MA1929.1/*1000bp_read1_Normalized.out S2/d
+cp $WRK/Library/CTCF_MA1929.1/*1000bp_midpoint_Normalized.out S2/d
 cp $WRK/Library/CTCF_MA1929.1/SCORES/*.out S2/d
 	
 
