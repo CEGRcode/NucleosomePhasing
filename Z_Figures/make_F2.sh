@@ -16,38 +16,42 @@ SCRIPTMANAGER=$WRK/../bin/ScriptManager-v0.15.jar
 
 [ -d F2 ] || mkdir F2
 
+[ -d F2/E ] || mkdir F2/E
+
 # ===============================================================================================================================
 
-cp $LIBRARY/WebLogos/CTCF_MA1929.1_logo.eps F2/
-cp $LIBRARY/WebLogos/ZKSCAN1_MA1585.1_logo.eps F2/
-cp $LIBRARY/WebLogos/REST_MA0138.3_logo.eps F2/
-cp $LIBRARY/WebLogos/ESRRA_MA0592.1_logo.eps F2/
-cp $LIBRARY/WebLogos/ATF7_MA0834.1_logo.eps F2/
-cp $LIBRARY/WebLogos/JUND_MA0492.2_logo.eps F2/
-cp $LIBRARY/WebLogos/NRF1_MA0506.3_logo.eps F2/
-cp $LIBRARY/WebLogos/SP1_MA0079.5_logoRC.eps F2/
-cp $LIBRARY/WebLogos/SPI1_MA0080.7_logo.eps F2/
-cp $LIBRARY/WebLogos/ZNF263_MA0528.1_logo.eps F2/
+cp $LIBRARY/WebLogos/CTCF_MA1929.1_logo.eps F2/e
+cp $LIBRARY/WebLogos/ZKSCAN1_MA1585.1_logo.eps F2/e
+cp $LIBRARY/WebLogos/REST_MA0138.3_logo.eps F2/e
+cp $LIBRARY/WebLogos/ATF7_MA0834.1_logo.eps F2/e
 
 # Composites
-cp $LIBRARY/BI_Pileups/MA1929/Composites/*.out F2/
-cp $LIBRARY/BI_Pileups/MA1585/Composites/*.out F2/
-cp $LIBRARY/BI_Pileups/MA0138/Composites/*.out F2/
-cp $LIBRARY/BI_Pileups/MA0592/Composites/*.out F2/
-cp $LIBRARY/BI_Pileups/MA0834/Composites/*.out F2/
-cp $LIBRARY/BI_Pileups/MA0492/Composites/*.out F2/
-cp $LIBRARY/BI_Pileups/MA0509/Composites/*.out F2/
-cp $LIBRARY//BI_Pileups/MA0079/Composites/*.out F2/
-cp $LIBRARY/BI_Pileups/MA0080/Composites/*.out F2/
-cp $LIBRARY/BI_Pileups/MA0528/Composites/*.out F2/
+cp $LIBRARY/BI_Pileups/MA1929/Composites/*.out F2/e
+cp $LIBRARY/BI_Pileups/MA1585/Composites/*.out F2/e
+cp $LIBRARY/BI_Pileups/MA0138/Composites/*.out F2/e
+cp $LIBRARY/BI_Pileups/MA0834/Composites/*.out F2/e
 
-# heatmap
 
-cat $LIBRARY/10phase/CTCF_MA1929.1_SORT-TFnucRatio_GROUP-Quartile1/CTCF_nearNuc_Q1_original_all.bed | sort -k5,5n > F2/CTCF_nearNuc_Q1_original_Nucsort.bed
+[ -d F2B ] || mkdir F2B
+# ===============================================================================================================================
 
-java -jar $SCRIPTMANAGER coordinate-manipulation expand-bed -c 500 F2/CTCF_nearNuc_Q1_original_Nucsort.bed -o F2/CTCF_nearNuc_Q1_original_Nucsort_500bp.bed
-java -jar $SCRIPTMANAGER read-analysis tag-pileup F2/CTCF_nearNuc_Q1_original_Nucsort_500bp.bed $WRK/../data/BAM/BNase-seq_50U-10min_merge_hg38.bam --cpu 4 -m -M F2/BNase-seq_50U-10min_merge_hg38_CTCF_nearNuc_Q1_original_Nucsort_500bp_midpoint
-java -jar $SCRIPTMANAGER figure-generation heatmap -p .95 -c B8C400 F2/BNase-seq_50U-10min_merge_hg38_CTCF_nearNuc_Q1_original_Nucsort_500bp_midpoint_combined.cdt -o  F2/BNase-seq_50U-10min_merge_hg38_CTCF_nearNuc_Q1_original_Nucsort_500bp_midpoint.png
-java -jar $SCRIPTMANAGER figure-generation label-heatmap F2/BNase-seq_50U-10min_merge_hg38_CTCF_nearNuc_Q1_original_Nucsort_500bp_midpoint.png -f 20 -l -250 -m 0 -r +250  -o F2/BNase-seq_50U-10min_merge_hg38_CTCF_nearNuc_Q1_original_Nucsort_500bp_midpoint.svg
-rm F2/CTCF_nearNuc_Q1_original_Nucsort_500bp.bed
-rm F2/BNase-seq_50U-10min_merge_hg38_CTCF_nearNuc_Q1_original_Nucsort_500bp_midpoint.png
+cp $LIBRARY/CTCF_Q4_500bp/SVG/*.svg  F2/b
+cp $LIBRARY/CTCF_Q4_1000bp/Composites/*.out F2/b
+
+
+[ -d F2C ] || mkdir F2C
+# ===============================================================================================================================
+
+cp $LIBRARY/CTCF_Q1-ClosestDyad_500bp/SVG/*.svg  F2/c
+cp $LIBRARY/CTCF_Q1_1000bp/Composites/*.out F2/c
+
+
+[ -d F2D ] || mkdir F2D
+# ===============================================================================================================================
+cp $LIBRARY/10phase/CTCF_Q1/10xplot/*read1_original_phase_3.out.out F2/d
+cp $LIBRARY/10phase/CTCF_Q1/10xplot/*read1_original_phase_8.out.out F2/d
+cp $LIBRARY/10phase/CTCF_Q1/10xplot/*read1_shuffle_phase_3.out.out F2/d
+cp $LIBRARY/10phase/CTCF_Q1/10xplot/*read1_shuffle_phase_8.out.out F2/d
+cp $LIBRARY/10phase/CTCF_Q1/*original_250bp_phase_sort_merge.svg F2/d
+cp $LIBRARY/10phase/CTCF_Q1/*shuffle_250bp_phase_sort_merge.svg  F2/d
+

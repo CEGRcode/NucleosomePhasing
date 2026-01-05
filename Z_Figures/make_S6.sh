@@ -39,18 +39,3 @@ cp $LIBRARY/10phase/NFIA_SORT-Occupancy_GROUP-Q4/10xplot/YY_NFIA_nearNuc_origina
 cp $LIBRARY/10phase/NFIA_SORT-Occupancy_GROUP-Q4/10xplot/SS_NFIA_nearNuc_original_phase_9.out S6/b/
 
 
-for file in S6/b/WW_*.out S6/b/RR_*.out S6/b/YY_*.out S6/b/SS_*.out; do
-    filename=$(basename "$file" ".out")
-    cut -f 1-481 "$file" > S6/b/${filename}_sense_left.out
-    echo "$(seq -19 19 | tr '\n' ' ')" > S6/b/${filename}_sense_mid.out
-    for i in $(seq 1 $(($(wc -l < "$file") - 1))); do
-        echo -e "$(printf '\t%.0s-' {1..39})" >> S6/b/${filename}_sense_mid_placeholder.out
-    done
-    cat S6/b/${filename}_sense_mid.out S6/b/${filename}_sense_mid_placeholder.out > S6/b/${filename}_sense_mid_combined.out
-    rm S6/b/${filename}_sense_mid.out S6/b/${filename}_sense_mid_placeholder.out
-    cut -f 521-1001 "$file" > S6/b/${filename}_sense_right.out
-    paste S6/b/${filename}_sense_left.out S6/b/${filename}_sense_mid_combined.out S6/b/${filename}_sense_right.out > S6/b/${filename}_sense_modified.out
-    rm S6/b/${filename}_sense_left.out S6/b/${filename}_sense_mid_combined.out S6/b/${filename}_sense_right.out
-done
-
-
