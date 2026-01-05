@@ -65,9 +65,9 @@ done
 
 # Composites
 BED=FOXA_LABEL-K562_SORT-ClosestDyad_1000bp
-cp $LIBRARY/$BED/Composites/BNase-seq_50U-10min_merge_hg38_${BED}_5read1_TotalTag.out F5/b/
+cp $LIBRARY/$BED/Composites/BNase-seq_50U-10min_merge_hg38_${BED}_5read1_*.out F5/b/
 BED=FOXA_LABEL-uHepG2_SORT-ClosestDyad_1000bp
-cp $LIBRARY/$BED/Composites/BNase-seq_50U-10min_merge_hg38_${BED}_5read1_TotalTag.out F5/b/
+cp $LIBRARY/$BED/Composites/BNase-seq_50U-10min_merge_hg38_${BED}_5read1_*.out F5/b/
 
 # ===============================================================================================================================
 
@@ -78,7 +78,7 @@ BED=FOXA_all_SORT-ClosestDyad_GROUP-NFR_1000bp
 cp $LIBRARY/$BED/Composites/K562_FOXA1_BX_rep1_hg38_${BED}_5read1_NCIS.out F5/c/
 cp $LIBRARY/$BED/Composites/K562_FOXA1_BX_rep1_hg38_${BED}_5read2_NCIS.out F5/c/
 cp $LIBRARY/$BED/Composites/BNase-seq_50U-10min_merge_hg38_${BED}_midpoint_combined.out   F5/c/
-BED=FOXA_all_SORT-ClosestDyad_GROUP-NoOverlap_1000bp
+BED=FOXA_all_SORT-ClosestDyad_GROUP-NucOverlap_1000bp
 cp $LIBRARY/$BED/Composites/K562_FOXA1_BX_rep1_hg38_${BED}_5read1_NCIS.out F5/c/
 cp $LIBRARY/$BED/Composites/K562_FOXA1_BX_rep1_hg38_${BED}_5read2_NCIS.out F5/c/
 cp $LIBRARY/$BED/Composites/BNase-seq_50U-10min_merge_hg38_${BED}_midpoint_combined.out   F5/c/
@@ -89,33 +89,35 @@ cp $LIBRARY/$BED/Composites/BNase-seq_50U-10min_merge_hg38_${BED}_midpoint_combi
 
 # Heatmaps
 BED=FOXA_K562-uHepG2_SORT-ClosestDyad_1000bp
-cp $LIBRARY/$BED/Composites/nativeK562_FOXA1_BX_rep1_hg38_${BED}_5read1_NCIS.out F5/d
-cp $LIBRARY/$BED/Composites/nativeK562_FOXA1_BX_rep1_hg38_${BED}_5read2_NCIS.out F5/d
-cp $LIBRARY/$BED/Composites/K562_FOXA1_BX_rep1_hg38_${BED}_5read1_NCIS.out F5/d
-cp $LIBRARY/$BED/Composites/K562_FOXA1_BX_rep1_hg38_${BED}_5read2_NCIS.out F5/d
-cp $LIBRARY/$BED/Composites/nativeHepG2_FOXA1_BX_rep1_hg38_${BED}_5read1_NCIS.out F5/d
-cp $LIBRARY/$BED/Composites/nativeHepG2_FOXA1_BX_rep1_hg38_${BED}_5read2_NCIS.out F5/d
-cp $LIBRARY/$BED/Composites/HepG2_FOXA1_BX_rep1_hg38_${BED}_5read1_NCIS.out F5/d
-cp $LIBRARY/$BED/Composites/HepG2_FOXA1_BX_rep1_hg38_${BED}_5read2_NCIS.out F5/d
+cp $LIBRARY/$BED/Composites/nativeK562_FOXA1_BX_rep1_hg38_${BED}_5read1-MIN100_NCIS.out F5/d
+cp $LIBRARY/$BED/Composites/nativeK562_FOXA1_BX_rep1_hg38_${BED}_5read2-MIN100_NCIS.out F5/d
+cp $LIBRARY/$BED/Composites/K562_FOXA1_BX_rep1_hg38_${BED}_5read1-MIN100_NCIS.out F5/d
+cp $LIBRARY/$BED/Composites/K562_FOXA1_BX_rep1_hg38_${BED}_5read2-MIN100_NCIS.out F5/d
+cp $LIBRARY/$BED/Composites/nativeHepG2_FOXA1_BX_rep1_hg38_${BED}-MIN100_5read1_NCIS.out F5/d
+cp $LIBRARY/$BED/Composites/nativeHepG2_FOXA1_BX_rep1_hg38_${BED}-MIN100_5read2_NCIS.out F5/d
+cp $LIBRARY/$BED/Composites/HepG2_FOXA1_BX_rep1_hg38_${BED}_5read1-MIN100_NCIS.out F5/d
+cp $LIBRARY/$BED/Composites/HepG2_FOXA1_BX_rep1_hg38_${BED}_5read2-MIN100_NCIS.out F5/d
 
 # ===============================================================================================================================
 
 [ -d F5/e ] || mkdir F5/e
 
 BED=FOXA_all_SORT-ClosestDyad_GROUP-NFR_1000bp
-cp $LIBRARY/$BED/Composites/nativeK562_FOXA1_BX_rep1_hg38_${BED}_5read1_NCIS.out F5/d
-cp $LIBRARY/$BED/Composites/nativeK562_FOXA1_BX_rep1_hg38_${BED}_5read2_NCIS.out F5/d
-cp $LIBRARY/$BED/Composites/KK_FOXA1_BX_rep1_hg38_${BED}_5read1_NCIS.out F5/d
-cp $LIBRARY/$BED/Composites/KK_FOXA1_BX_rep1_hg38_${BED}_5read2_NCIS.out F5/d
-cp $LIBRARY/$BED/Composites/KH_FOXA1_BX_rep1_hg38_${BED}_5read1_NCIS.out F5/d
-cp $LIBRARY/$BED/Composites/KH_FOXA1_BX_rep1_hg38_${BED}_5read2_NCIS.out F5/d
+cp $LIBRARY/$BED/Composites/nativeK562_FOXA1_BX_rep1_hg38_${BED}_5read1-MIN100_NCIS.out F5/e
+cp $LIBRARY/$BED/Composites/nativeK562_FOXA1_BX_rep1_hg38_${BED}_5read2-MIN100_NCIS.out F5/e
+cp $LIBRARY/$BED/Composites/KK_FOXA1_BX_rep1_hg38_${BED}_5read1-MIN100_NCIS.out F5/e
+cp $LIBRARY/$BED/Composites/KK_FOXA1_BX_rep1_hg38_${BED}_5read2-MIN100_NCIS.out F5/e
+cp $LIBRARY/$BED/Composites/KH_FOXA1_BX_rep1_hg38_${BED}_5read1-MIN100_NCIS.out F5/e
+cp $LIBRARY/$BED/Composites/KH_FOXA1_BX_rep1_hg38_${BED}_5read2-MIN100_NCIS.out F5/e
 
-BED=FOXA_all_SORT-ClosestDyad_GROUP-NoOverlap_1000bp
-cp $LIBRARY/$BED/Composites/nativeK562_FOXA1_BX_rep1_hg38_${BED}_5read1_NCIS.out F5/d
-cp $LIBRARY/$BED/Composites/nativeK562_FOXA1_BX_rep1_hg38_${BED}_5read2_NCIS.out F5/d
-cp $LIBRARY/$BED/Composites/KK_FOXA1_BX_rep1_hg38_${BED}_5read1_NCIS.out F5/d
-cp $LIBRARY/$BED/Composites/KK_FOXA1_BX_rep1_hg38_${BED}_5read2_NCIS.out F5/d
-cp $LIBRARY/$BED/Composites/KH_FOXA1_BX_rep1_hg38_${BED}_5read1_NCIS.out F5/d
-cp $LIBRARY/$BED/Composites/KH_FOXA1_BX_rep1_hg38_${BED}_5read2_NCIS.out F5/d
+BED=FOXA_all_SORT-ClosestDyad_GROUP-NucOverlap_1000bp
+cp $LIBRARY/$BED/Composites/nativeK562_FOXA1_BX_rep1_hg38_${BED}_5read1-MIN100_NCIS.out F5/e
+cp $LIBRARY/$BED/Composites/nativeK562_FOXA1_BX_rep1_hg38_${BED}_5read2-MIN100_NCIS.out F5/e
+cp $LIBRARY/$BED/Composites/KK_FOXA1_BX_rep1_hg38_${BED}_5read1-MIN100_NCIS.out F5/e
+cp $LIBRARY/$BED/Composites/KK_FOXA1_BX_rep1_hg38_${BED}_5read2-MIN100_NCIS.out F5/e
+cp $LIBRARY/$BED/Composites/KH_FOXA1_BX_rep1_hg38_${BED}_5read1-MIN100_NCIS.out F5/e
+cp $LIBRARY/$BED/Composites/KH_FOXA1_BX_rep1_hg38_${BED}_5read2-MIN100_NCIS.out F5/e
 
+cp $LIBRARY/$BED/Composites/KK_FOXA1_BX_rep1_hg38_${BED}_5read2_NCIS.out F5/e
+cp $LIBRARY/$BED/Composites/KH_FOXA1_BX_rep1_hg38_${BED}_5read1_NCIS.out F5/e
 

@@ -26,6 +26,7 @@ cp $LIBRARY/WebLogos/REST_MA0138.3_logo.eps F2/e
 cp $LIBRARY/WebLogos/ATF7_MA0834.1_logo.eps F2/e
 
 # Composites
+cp $LIBRARY/CTCF_Q*_1000bp/Composites/*.out F2/e
 cp $LIBRARY/BI_Pileups/MA1929/Composites/*.out F2/e
 cp $LIBRARY/BI_Pileups/MA1585/Composites/*.out F2/e
 cp $LIBRARY/BI_Pileups/MA0138/Composites/*.out F2/e

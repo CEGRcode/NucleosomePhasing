@@ -117,9 +117,9 @@ for BAMFILE in $SEM_CTCFKO_BX_BAM $SEM_CTCFWT_BX_BAM  ; do
     BAM=`basename $BAMFILE ".bam"`
     NFFILE=$WRK/../data/BAM/NormalizationFactors/${BAM}_*_ScalingFactors.out
     FACTOR=`grep 'Scaling factor' $NFFILE | awk -F" " '{print $3}'`
-    #java -jar $SCRIPTMANAGER read-analysis tag-pileup S2/b/CTCF_MA1929_1000bp.bed $BAMFILE -1 --cpu 4 -o  S2/b/${BAM}_CTCF_MA1929_1000bp_read1.out
+    java -jar $SCRIPTMANAGER read-analysis tag-pileup S2/b/CTCF_MA1929_1000bp.bed $BAMFILE -1 --cpu 4 -o  S2/b/${BAM}_CTCF_MA1929_1000bp_read1.out
     java -jar $SCRIPTMANAGER read-analysis scale-matrix S2/b/${BAM}_CTCF_MA1929_1000bp_read1.out  -s $FACTOR -l 1 -r 1 -o S2/b/${BAM}_CTCF_MA1929_1000bp_read1_Normalized.out
-    #java -jar $SCRIPTMANAGER read-analysis tag-pileup S2/b/CTCF_MA1929_150bp.bed $BAMFILE -1 -s 6 --combined --cpu 4 -o  S2/b/${BAM}_CTCF_MA1929_150bp_read1.out
+    java -jar $SCRIPTMANAGER read-analysis tag-pileup S2/b/CTCF_MA1929_150bp.bed $BAMFILE -1 -s 6 --combined --cpu 4 -o  S2/b/${BAM}_CTCF_MA1929_150bp_read1.out
     java -jar $SCRIPTMANAGER read-analysis scale-matrix S2/b/${BAM}_CTCF_MA1929_150bp_read1.out  -s $FACTOR -l 1 -r 1 -o S2/b/${BAM}_CTCF_MA1929_150bp_read1_Normalized.out
     java -jar $SCRIPTMANAGER read-analysis aggregate-data --sum S2/b/${BAM}_CTCF_MA1929_150bp_read1_Normalized.out -o S2/b/${BAM}_CTCF_MA1929_150bp_read1_Normalized_SCORES.out
 done
